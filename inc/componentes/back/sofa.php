@@ -89,13 +89,6 @@ if ($apiLeague):
             break;
 
         }
-        // CELTIC
-        if ($tournament_id == 36) {
-            if ($home_id == 2352 || $away_id == 2352) {
-                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`) SELECT $game_id, $home_id, $away_id, $tournament_id, '$date', '$sport' FROM dual WHERE $home_id = 2352 OR $away_id = 2532";
-            } else {
-            }
-        }
         // Tennis
         if ($sport == "tennis") {
             $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`, `canal2`, `canal3`, `canal4`, `canal5`, `canal6`, `canal7`, `canal8`, `canal9`, starp) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '227', '228', '80','185','186','187','31','106','222','1')";
