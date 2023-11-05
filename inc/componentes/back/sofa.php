@@ -84,7 +84,7 @@ if ($apiLeague):
         }
         // CELTIC
         if ($tournament_id == 36) {
-            if ($home_id || $away_id == 2352) {
+            if ($home_id == 2352 || $away_id == 2352) {
                 $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport')";
             }
         }
