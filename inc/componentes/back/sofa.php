@@ -77,6 +77,13 @@ if ($apiLeague):
             case 11621: case 325: case 11536:
                 $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `vix`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '1')";
             break;
+            // Celtic & Rangers
+            case 36:
+                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`)
+                SELECT $game_id, $home_id, $away_id, $tournament_id, '$date', '$sport'
+                FROM dual
+                WHERE $home_id IN(2351, 2352) OR $away_id IN(2351, 2532)";
+            break;
             default:
                 $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport')";
             break;
@@ -85,7 +92,8 @@ if ($apiLeague):
         // CELTIC
         if ($tournament_id == 36) {
             if ($home_id == 2352 || $away_id == 2352) {
-                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport')";
+                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`) SELECT $game_id, $home_id, $away_id, $tournament_id, '$date', '$sport' FROM dual WHERE $home_id = 2352 OR $away_id = 2532";
+            } else {
             }
         }
         // Tennis
