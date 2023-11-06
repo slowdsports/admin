@@ -107,10 +107,11 @@ function editarPartido() {
     var eVisitante = document.getElementById("equipoVisitante").value;
     var eLiga = document.getElementById("partidoLiga").value;
     var pFecha = document.getElementById("partidoFecha").value;
-    var starp = document.getElementById("starp")
+    var starp = document.getElementById("starp");
     if (starp.checked) { starp = 1; } else { starp = 0; }
     var vix = document.getElementById("vix");
     if (vix.checked) { vix = 1; } else { vix = 0; }
+    var hbom = document.getElementById("hbom").value;
     var pCanal1 = document.getElementById("partidoCanal1").value;
     var pCanal2 = document.getElementById("partidoCanal2").value;
     var pCanal3 = document.getElementById("partidoCanal3").value;
@@ -148,7 +149,7 @@ function editarPartido() {
     };
     xmlhttp.open("POST", "inc/componentes/back/update.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("id=" + pId + "&equipoLocal=" + eLocal + "&equipoVisitante=" + eVisitante + "&equipoLiga=" + eLiga + "&partidoFecha=" + pFecha + "&starp=" + starp + "&vix=" + vix + "&partidoCanal1=" + pCanal1 + "&partidoCanal2=" + pCanal2 + "&partidoCanal3=" + pCanal3 + "&partidoCanal4=" + pCanal4 + "&partidoCanal5=" + pCanal5 + "&partidoCanal6=" + pCanal6 + "&partidoCanal7=" + pCanal7 + "&partidoCanal8=" + pCanal8 + "&partidoCanal9=" + pCanal9 + "&partidoCanal10=" + pCanal10);
+    xmlhttp.send("id=" + pId + "&equipoLocal=" + eLocal + "&equipoVisitante=" + eVisitante + "&equipoLiga=" + eLiga + "&partidoFecha=" + pFecha + "&starp=" + starp + "&hbom=" + hbom + "&vix=" + vix + "&partidoCanal1=" + pCanal1 + "&partidoCanal2=" + pCanal2 + "&partidoCanal3=" + pCanal3 + "&partidoCanal4=" + pCanal4 + "&partidoCanal5=" + pCanal5 + "&partidoCanal6=" + pCanal6 + "&partidoCanal7=" + pCanal7 + "&partidoCanal8=" + pCanal8 + "&partidoCanal9=" + pCanal9 + "&partidoCanal10=" + pCanal10);
 }
 
 function eliminarPartido() {

@@ -21,7 +21,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $canal10 = $_POST["partidoCanal10"];
     $starp = $_POST["starp"];
     $vix = $_POST["vix"];
-    $starp = $_POST["starp"];
+    $hbom = $_POST["hbom"];
+    // HBO MAX
+    if ($hbom !== "") {
+        $verifq = mysqli_query($conn,"SELECT hboId, partido FROM hbom WHERE partido='$id'");
+        $verif = mysqli_fetch_assoc($verifq);
+        if ($verif && isset($verif['hboId']))  {
+            // YA EXISTE
+            $hbo = "UPDATE `hbom` SET `url`='$hbom' WHERE partido=$id";
+        } else {
+            // NO EXISTE
+            $hbo = "INSERT INTO `hbom` SET `url`='$hbom', `partido`='$id'";
+        }
+        if (mysqli_query($conn, $hbo)) {
+            echo "Se ha agregado HBO MAX al juego #" . $id ."";
+        } else {
+            echo "Ha ocurrido un error al agregar HBO: " . mysqli_error($conn);
+        }
+    } else {}
     $sql = "UPDATE `partidos` SET `local`='$local', `visitante`='$visitante', `liga`='$liga', `fecha_hora`='$fecha', `starp`='$starp',`vix`='$vix', `canal1`=$canal1, `canal2`=$canal2, `canal3`=$canal3, `canal4`=$canal4, `canal5`=$canal5, `canal6`=$canal6, `canal7`=$canal7, `canal8`=$canal8, `canal9`=$canal9, `canal10`=$canal10 WHERE id=$id";
     if (mysqli_query($conn, $sql)) {
         echo "El juego #" . $id . " ha sido modificado satisfactoriamente";

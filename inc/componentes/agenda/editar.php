@@ -119,6 +119,13 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- HBO MAX -->
+                        <div class="col-log-12">
+                            <div class="mb-3">
+                                <label for="hbom" class="form-label">HBO</label>
+                                <textarea class="form-control" id="hbom" name="hbom" rows="5"></textarea>
+                            </div>
+                        </div>
                         <!-- CANAL -->
                         <div class="col-lg-6">
                             <div class="mb-3">
