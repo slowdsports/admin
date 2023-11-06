@@ -122,8 +122,13 @@
                         <!-- HBO MAX -->
                         <div class="col-log-12">
                             <div class="mb-3">
+                                <?php
+                                $hbo_query = "SELECT hboId, url FROM hbom";
+                                $resultado_hbo = mysqli_query($conn, $hbo_query);
+                                $hbom = mysqli_fetch_assoc($resultado_hbo)
+                                ?>
                                 <label for="hbom" class="form-label">HBO</label>
-                                <textarea class="form-control" id="hbom" name="hbom" rows="5"></textarea>
+                                <textarea class="form-control" id="hbom" name="hbom" rows="5"> <?= $hbom['url'] ?></textarea>
                             </div>
                         </div>
                         <!-- CANAL -->
