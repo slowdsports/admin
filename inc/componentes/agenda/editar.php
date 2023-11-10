@@ -130,7 +130,7 @@
                                 $hbom = mysqli_fetch_assoc($resultado_hbo)
                                 ?>
                                 <label for="hbom" class="form-label">HBO</label>
-                                <textarea class="form-control" id="hbom" name="hbom" rows="5"> <?= $hbom['url'] ?></textarea>
+                                <textarea class="form-control" id="hbom" name="hbom" rows="5"> <?= ($hbom['url'] !== null ? $hbom['url'] : "") ?></textarea>
                             </div>
                         </div>
                         <!-- CANAL -->
