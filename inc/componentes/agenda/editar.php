@@ -123,7 +123,7 @@
                         <div class="col-log-12">
                             <div class="mb-3">
                                 <?php
-                                $paramId = $_GET['id'];
+                                $paramId = $_GET['editar'];
                                 $hbo_query = "SELECT hboId, url, partido FROM hbom
                                 WHERE partido='$paramId'";
                                 $resultado_hbo = mysqli_query($conn, $hbo_query);
