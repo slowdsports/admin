@@ -123,7 +123,9 @@
                         <div class="col-log-12">
                             <div class="mb-3">
                                 <?php
-                                $hbo_query = "SELECT hboId, url FROM hbom";
+                                $paramId = $_GET['id'];
+                                $hbo_query = "SELECT hboId, url, partido FROM hbom
+                                WHERE partido='$paramId'";
                                 $resultado_hbo = mysqli_query($conn, $hbo_query);
                                 $hbom = mysqli_fetch_assoc($resultado_hbo)
                                 ?>
