@@ -73,8 +73,8 @@ if ($apiLeague):
             case 17015: case 17: case 23: case 35: 
                 $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `starp`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '1')";
             break;
-            // Liga MX + Brasileirao + Betplay + Copa de La Liga (Vix)
-            case 11621: case 325: case 11536: case 13475:
+            // Liga MX + Brasileirao + Betplay + Copa de La Liga + FIFA WC u17 (Vix)
+            case 11621: case 325: case 11536: case 13475: case 279:
                 $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `vix`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '1')";
             break;
             // Celtic & Rangers
