@@ -63,7 +63,7 @@ if ($apiLeague):
             break;
             // Primera Uruguay (VTV, VTV+)
             case 278:
-                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`, `canal2`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '346', '356')";
+                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`, `canal2`, `starp`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '346', '356', '1')";
             break;
             // Liga Guate (Canal 7)
             case 11619:
