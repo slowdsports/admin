@@ -11,6 +11,7 @@ $i = 0;
 if ($apiLeague):
     // Season Info
     $apiSeason = "https://api.sofascore.com/api/v1/unique-tournament/" . $apiLeague . "/seasons";
+    // https://api.sofascore.com/api/v1/unique-tournament/270/seasons
     $data = file_get_contents($apiSeason);
     $jsonData = json_decode($data, true);
     $seasonId = $jsonData['seasons'][0]['id'];

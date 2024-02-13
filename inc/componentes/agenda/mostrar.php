@@ -71,17 +71,17 @@
                             ?>
                             <tr id="partido-<?= $result['id'] ?>">
                                 <td class="table-user">
-                                    <img src="https://api.sofascore.app/api/v1/team/<?= $result['id_local']; ?>/image"
+                                    <img src="https://api.codetabs.com/v1/proxy/?quest=https://api.sofascore.app/api/v1/team/<?= $result['id_local']; ?>/image"
                                         alt="table-user" class="me-2 rounded-circle">
                                     <?= $result['equipo_local']; ?>
                                 </td>
                                 <td class="table-user">
-                                    <img src="https://api.sofascore.app/api/v1/team/<?= $result['id_visitante']; ?>/image"
+                                    <img src="https://api.codetabs.com/v1/proxy/?quest=https://api.sofascore.app/api/v1/team/<?= $result['id_visitante']; ?>/image"
                                         alt="table-user" class="me-2 rounded-circle">
                                     <?= $result['equipo_visitante']; ?>
                                 </td>
                                 <td class="table-user">
-                                    <img src="https://api.sofascore.app/api/v1/unique-tournament/<?= $result['liga']; ?>/image/dark"
+                                    <img src="https://api.codetabs.com/v1/proxy/?quest=https://api.sofascore.app/api/v1/unique-tournament/<?= $result['liga']; ?>/image/dark"
                                         alt="table-user" class="me-2 rounded-circle">
                                     <?= $result['partido_liga']; ?>
                                 </td>
