@@ -31,13 +31,13 @@
                 </a>
             </li> -->
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarPages" aria-expanded="false" aria-controls="sidebarPages"
+                <a data-bs-toggle="collapse" href="#sidebarAgenda" aria-expanded="false" aria-controls="sidebarAgenda"
                     class="side-nav-link">
                     <i class="ri-pages-line"></i>
                     <span>Agenda</span>
                     <span class="menu-arrow"></span>
                 </a>
-                <div class="collapse" id="sidebarPages">
+                <div class="collapse" id="sidebarAgenda">
                     <ul class="side-nav-second-level">
                         <li>
                             <a href="?p=agenda">Todo</a>
@@ -67,6 +67,18 @@
                 </a>
             </li>
             <li class="side-nav-title">Canales de TV</li>
+            <li class="side-nav-item">
+                <a href="?p=canales" class="side-nav-link">
+                    <i class="ri-tv-line"></i>
+                    <span>Canales</span>
+                </a>
+            </li>
+            <li class="side-nav-item">
+                <a href="?p=fuentes" class="side-nav-link">
+                    <i class="ri-share-line"></i>
+                    <span>Fuentes</span>
+                </a>
+            </li>
         </ul>
         <!--- End Sidemenu -->
         <div class="clearfix"></div>

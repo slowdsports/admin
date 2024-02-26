@@ -2,7 +2,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <a href="?p=canales&agregar" class="btn btn-outline-primary">+ Agregar</a>
+                <a href="?p=fuentes&agregar" class="btn btn-outline-primary">+ Agregar</a>
                 <hr>
                 <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                     <thead>
@@ -13,25 +13,26 @@
                         </tr>
                     </thead>
 
+
                     <tbody>
                         <?php
                         while ($result = mysqli_fetch_array($canales)):
                             ?>
-                            <tr id="canal-<?= $result['canalId'] ?>">
+                            <tr id="fuente-<?= $result['fuenteId'] ?>">
                                 <td class="table-user">
                                     <img src="../assets/img/canales/<?= $result['canalImg']; ?>.png"
                                         alt="table-user" class="me-2 rounded-circle">
-                                        <?= $result['canalNombre']; ?>
+                                        <?= $result['fuenteNombre']; ?> (<?= $result['paisNombre']; ?>)
                                 </td>
                                 <td>
                                     <?= $result['categoriaNombre']; ?>
                                 </td>
                                 <td>
                                     <div class="btn-group mb-2">
-                                        <a href="?p=canales&editar=<?= $result['canalId'] ?>"
+                                        <a href="?p=fuentes&editar=<?= $result['fuenteId'] ?>"
                                             class="btn btn-outline-primary">Editar</a>
-                                        <button type="button" class="btn btn-outline-danger eliminarCanal"
-                                            data-id="<?= $result['canalId'] ?>" onclick="eliminarCanal()">Borrar</button>
+                                        <button type="button" class="btn btn-outline-danger eliminarFuente"
+                                        data-id="<?= $result['fuenteId'] ?>" onclick="eliminarFuente()">Borrar</button>
                                     </div>
                                 </td>
                             </tr>

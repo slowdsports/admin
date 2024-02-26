@@ -56,6 +56,66 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Ha ocurrido un error al agregar el equipo: " . mysqli_error($conn);
         }
     }
+    // Revisamos si lo que agregaremos es un canal
+    elseif (isset($_POST['canales'])) {
+        $canalNombre = $_POST['canalNombre'];
+        $canalImg = $_POST['canalImg'];
+        $canalCategoria = $_POST['canalCategoria'];
+        $sql = "INSERT INTO `canales`(`canalNombre`, `canalImg`, `canalCategoria`) VALUES ('$canalNombre','$canalImg','$canalCategoria');";
+        if (mysqli_query($conn, $sql)) {
+            echo "El canal ha sido agregado correctamente";
+        } else {
+            echo "Ha ocurrido un error al agregar el canal: " . mysqli_error($conn);
+        }
+    }
+    // Revisamos si lo que agregaremos es una fuente
+    elseif (isset($_POST['fuentes'])) {
+        $canalExistente = $_POST['canalExistente'];
+        $canalNombre = $_POST['canalNombre'];
+        $canalImg = $_POST['canalImg'];
+        $canalCategoria = $_POST['canalCategoria'];
+        $fuenteNombre = $_POST['fuenteNombre'];
+        $fuenteUrl = $_POST['fuenteUrl'];
+        $key1 = $_POST['key1'];
+        $key2 = $_POST['key2'];
+        $pais = $_POST['pais'];
+        $tipo = $_POST['tipo'];
+        // Canal Nuevo
+        if ($canalExistente == "") {
+            // Canal Nuevo
+            $sql_insertar_canal = "INSERT INTO `canales`(`canalNombre`, `canalImg`, `canalCategoria`) VALUES ('$canalNombre', '$canalImg', '$canalCategoria')";
+
+            if ($conn->query($sql_insertar_canal) === TRUE) {
+                // Obtener el ID del canal recién insertado
+                $nuevo_canal_id = $conn->insert_id;
+
+                // Consulta para insertar una nueva fuente utilizando el ID del canal recién insertado
+                $sql_insertar_fuente = "INSERT INTO `fuentes`(`fuenteNombre`, `canal`, `canalUrl`, `key`, `key2`, `pais`, `tipo`) VALUES ('$fuenteNombre', '$nuevo_canal_id', '$fuenteUrl', '$key1', '$key2', '$pais', '$tipo' )";
+                
+                if ($conn->query($sql_insertar_fuente) === TRUE) {
+                    // Ambas consultas se realizaron con éxito, confirmar la transacción
+                    $conn->commit();
+                    echo "Nuevo canal y fuente agregados correctamente.";
+                } else {
+                    // Si hay un error al insertar la fuente, revertir la transacción
+                    $conn->rollback();
+                    echo "Error al agregar la fuente: " . $conn->error;
+                }
+            } else {
+                // Si hay un error al insertar el canal, revertir la transacción
+                $conn->rollback();
+                echo "Error al agregar el canal: " . $conn->error;
+            }
+        } else {
+            $sql = "INSERT INTO `fuentes`(`fuenteNombre`, `canal`, `canalUrl`, `key`, `key2`, `pais`, `tipo`) VALUES ('$fuenteNombre','$canalExistente','$fuenteUrl','$key1','$key2','$pais','$tipo');";
+            if (mysqli_query($conn, $sql)) {
+                echo "La fuente ha sido agregado correctamente";
+            } else {
+                echo "Ha ocurrido un error al agregar la fuente: " . mysqli_error($conn);
+            }
+
+        }
+    }
 }
 
 mysqli_close($conn);

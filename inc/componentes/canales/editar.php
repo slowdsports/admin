@@ -3,101 +3,66 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="header-title">
-                    Editar la fuente:
-                    <?= $result['fuenteNombre'] ?> del canal:
+                    Editar canal:
                     <?= $result['canalNombre'] ?>
                 </h4>
             </div>
             <div class="card-body">
-                <form action="" method="post">
+                <form method="post">
                     <div class="row">
-                        <!-- LOCAL -->
-                        <div class="col-lg-6">
-                            <div class="mb-3">
-                                <label for="local" class="form-label">Canal Padre</label>
-                                <select class="form-control select2" data-toggle="select2" id="local" name="local">
-                                    <?php
-                                    $canales_query = "SELECT canalId, canalNombre FROM canales";
-                                    $resultado_canales = mysqli_query($conn, $canales_query);
-                                    while ($canal = mysqli_fetch_assoc($resultado_canales)):
-                                        ?>
-                                        <option value="<?= $canal['canalId'] ?>" <?= ($canal['canalId'] == $result['canal']) ? "selected" : "" ?>>
-                                            <?= $canal['canalNombre'] ?>
-                                        </option>
-                                    <?php endwhile; ?>
-                                </select>
-                            </div>
-                        </div>
+                        <?php
+                        // $getCanal = $_GET['editar'];
+                        // $queryCanal = mysqli_query($conn, "SELECT * FROM canales WHERE canalId='$getCanal'");
+                        // $result = mysqli_fetch_array($queryCanal);
+                        // echo $result['canalId'];
+                        ?>
                         <!-- DATOS FUENTE -->
                         <div class="col-lg-12">
                             <div class="card">
-                                <h4 class="header-title">Datos de la Fuente</h4>
+                                <h4 class="header-title">Datos del canal</h4>
                             </div>
                         </div>
                         <!-- NOMBRE -->
                         <div class="col-lg-6">
                             <div class="mb-3">
-                                <label for="fuenteNombre" class="form-label">Nombre</label>
-                                <input type="text" id="fuenteNombre" class="form-control">
+                                <label for="canalNombre" class="form-label">Nombre</label>
+                                <input type="text" id="canalNombre" class="form-control" value="<?= $result['canalNombre'] ?>">
                             </div>
                         </div>
-                        <!-- URL -->
+                        <!-- IMG -->
                         <div class="col-lg-6">
                             <div class="mb-3">
-                                <label for="fuenteUrl" class="form-label">URL</label>
-                                <input type="text" id="fuenteUrl" class="form-control">
+                                <label for="canalImg" class="form-label">Imagen (nombre en carpeta)</label>
+                                <input type="text" id="canalImg" class="form-control" value="<?= $result['canalImg'] ?>">
                             </div>
                         </div>
-                        <!-- KEY 1 -->
+                        <!-- CATEGORIAS -->
                         <div class="col-lg-6">
                             <div class="mb-3">
-                                <label for="key1" class="form-label">Key 1</label>
-                                <input type="text" id="key1" class="form-control">
-                            </div>
-                        </div>
-                        <!-- KEY 2 -->
-                        <div class="col-lg-6">
-                            <div class="mb-3">
-                                <label for="key2" class="form-label">Key 2</label>
-                                <input type="text" id="key2" class="form-control">
-                            </div>
-                        </div>
-                        <!-- PAIS -->
-                        <div class="col-lg-6">
-                            <div class="mb-3">
-                                <label for="pais" class="form-label">País</label>
-                                <select class="form-control select2" data-toggle="select2" id="pais" name="pais">
+                                <label for="categoria" class="form-label">Categorías</label>
+                                <select class="form-control select2" data-toggle="select2" id="categoria" name="categoria">
                                     <?php
-                                    $paises_query = "SELECT paisId, paisNombre FROM paises";
-                                    $resultado_paises = mysqli_query($conn, $paises_query);
-                                    while ($pais = mysqli_fetch_assoc($resultado_paises)):
+                                    $categorias_query = "SELECT categoriaId, categoriaNombre FROM categorias";
+                                    $resultado_categorias = mysqli_query($conn, $categorias_query);
+                                    while ($categoria = mysqli_fetch_assoc($resultado_categorias)):
                                         ?>
-                                        <option value="<?= $pais['paisId'] ?>">
-                                            <?= $pais['paisNombre'] ?>
-                                        </option>
-                                    <?php endwhile; ?>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- TIPOS -->
-                        <div class="col-lg-6">
-                            <div class="mb-3">
-                                <label for="tipo" class="form-label">Tipo</label>
-                                <select class="form-control select2" data-toggle="select2" id="tipo" name="tipo">
-                                    <?php
-                                    $tipos_query = "SELECT tipoId, tipoNombre FROM tipos";
-                                    $resultado_tipos = mysqli_query($conn, $tipos_query);
-                                    while ($tipo = mysqli_fetch_assoc($resultado_tipos)):
-                                        ?>
-                                        <option value="<?= $tipo['tipoId'] ?>">
-                                            <?= $tipo['tipoNombre'] ?>
+                                        <option value="<?= $categoria['categoriaId'] ?>"
+                                        <?= ($categoria['categoriaId'] == $result['canalCategoria']) ? "selected" : "" ?>>
+                                            <?= $categoria['categoriaNombre'] ?>
                                         </option>
                                     <?php endwhile; ?>
                                 </select>
                             </div>
                         </div>
                         <!-- CTA -->
-                        <button type="submit" id="editar" name="editar" class="btn btn-primary">Editar</button>
+                        <button type="button" id="editar" name="editar" class="btn btn-primary"
+                            onclick="editarCanal()">Editar</button>
+                        <!-- ID -->
+                        <div class="col-lg-6">
+                            <div class="mb-3">
+                                <input type="hidden" id="canalId" class="form-control" value="<?= $result['canalId'] ?>">
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>

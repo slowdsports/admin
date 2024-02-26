@@ -23,6 +23,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Ha ocurrido un error al eliminar los juegos: " . mysqli_error($conn);
         }
         // Revisamos si lo que eliminaremos es una liga
+    } elseif (isset($_POST['canales'])){
+        $id = $_POST["id"];
+        $sql = "DELETE FROM `canales` WHERE canalId=$id";
+        if (mysqli_query($conn, $sql)) {
+            echo "El canal " . $id . " ha sido eliminado correctamente";
+        } else {
+            echo "Ha ocurrido un error al eliminar el canal: " . mysqli_error($conn);
+        }
+        // Borrar partidos por Liga
+    } elseif (isset($_POST['fuentes'])){
+        $id = $_POST["id"];
+        $sql = "DELETE FROM `fuentes` WHERE fuenteId=$id";
+        if (mysqli_query($conn, $sql)) {
+            echo "La fuente " . $id . " ha sido eliminada correctamente";
+        } else {
+            echo "Ha ocurrido un error al eliminar la fuente: " . mysqli_error($conn);
+        }
+        // Borrar partidos por Liga
     }
     // elseif (isset($_POST['liga'])) {
     //     $ligaId = ["id"];

@@ -8,6 +8,46 @@ if (!isset($_POST['filtrarLiga'])) {
     $apiLeague = $_POST['filtrarLiga'];
 }
 $i = 0;
+
+
+
+// Motor
+
+if ($apiLeague == "f1") {
+    // Games Info
+    $apiUrl = "https://api.sofascore.com/api/v1/stage/206456/substages";
+    $data = file_get_contents($apiUrl);
+    $jsonData = json_decode($data, true);
+
+    // Verificamos si hay datos válidos obtenidos de la API
+    if (isset($jsonData['stages']) && is_array($jsonData['stages'])) {
+        foreach ($jsonData['stages'] as $stage) {
+            // Aquí necesitas usar $stage en lugar de $event
+            $i++;
+            $id = $stage['id'];
+            $tipo = $stage['uniqueStage']['category']['name'];
+            $etapa = $stage['description'];
+            $fecha = date('Y-m-d H:i:s', $stage['startDateTimestamp']);
+            $ciudad = $stage['stageParent']['description'];
+            // Realizar operaciones con $country si es necesario
+            $game_insert = "INSERT INTO `motor`(`id`, `tipo`, `etapa`, `fecha_hora`, `ciudad`) VALUES ($id, $tipo, $etapa, $fecha, '$ciudad')";
+            mysqli_query($conn, $game_insert);
+        }
+        if ($game_insert) {
+            echo "Se agregaron " . $i . " carreras de " . $tipo;
+        } else {
+            echo "Error al agregar las carreras: " . mysqli_error($conn);
+        }
+    } else {
+        echo "No se encontraron datos válidos para esa liga.";
+    }
+}
+
+
+// Deporte General
+
+
+
 if ($apiLeague):
     // Season Info
     $apiSeason = "https://api.sofascore.com/api/v1/unique-tournament/" . $apiLeague . "/seasons";
@@ -54,6 +94,7 @@ if ($apiLeague):
         // Game Info
         $i++;
         $game_id = $event['id'];
+        date_default_timezone_set('Europe/Madrid');
         $date = date('Y-m-d H:i:s', $event['startTimestamp']);
         // Canales por defecto por liga
         // Liga PRO [Ecuador]
@@ -69,10 +110,6 @@ if ($apiLeague):
             // Liga Guate (Canal 7)
             case 11619:
                 $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '178')";
-            break;
-            // LaLiga2 (Hyperm)
-            case 54:
-                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '26')";
             break;
             // UCL + UEL (Star + Vix)
             case 7: case 679:
