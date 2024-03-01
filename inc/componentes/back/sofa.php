@@ -16,16 +16,16 @@ $i = 0;
 
 if ($apiLeague):
     // Season Info
-    $apiSeason = "https://api.sofascore.com/api/v1/unique-tournament/" . $apiLeague . "/seasons";
-    // https://api.sofascore.com/api/v1/unique-tournament/270/seasons
+    $apiSeason = "https://api.codetabs.com/v1/proxy/?quest=https://api.sofascore.com/api/v1/unique-tournament/" . $apiLeague . "/seasons";
+    // https://api.codetabs.com/v1/proxy/?quest=https://api.sofascore.com/api/v1/unique-tournament/270/seasons
     $data = file_get_contents($apiSeason);
     $jsonData = json_decode($data, true);
     $seasonId = $jsonData['seasons'][0]['id'];
     // Games Info
-    $apiUrl = "https://api.sofascore.com/api/v1/unique-tournament/" . $apiLeague . "/season/" . $seasonId . "/events/next/0";
+    $apiUrl = "https://api.codetabs.com/v1/proxy/?quest=https://api.sofascore.com/api/v1/unique-tournament/" . $apiLeague . "/season/" . $seasonId . "/events/next/0";
     $data = file_get_contents($apiUrl);
     if (!$data) {
-        $apiUrl = "https://api.sofascore.com/api/v1/unique-tournament/" . $apiLeague . "/season/" . $seasonId . "/events/last/0";
+        $apiUrl = "https://api.codetabs.com/v1/proxy/?quest=https://api.sofascore.com/api/v1/unique-tournament/" . $apiLeague . "/season/" . $seasonId . "/events/last/0";
     }
     $jsonData = json_decode($data, true);
     // Recorrer Data y guardar en DB
