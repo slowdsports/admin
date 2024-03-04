@@ -88,7 +88,7 @@ if ($apiLeague):
         switch ($tournament_id) {
             // LaLiga
             case 8:
-                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal2`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '17')";
+                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal2`, `canal3`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '17', '267')";
             break;
             // LaLiga2
             case 54:
