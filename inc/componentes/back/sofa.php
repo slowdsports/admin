@@ -86,6 +86,14 @@ if ($apiLeague):
         // Canales por defecto por liga
         // Liga PRO [Ecuador]
         switch ($tournament_id) {
+            // LaLiga
+            case 8:
+                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal2`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '17')";
+            break;
+            // LaLiga2
+            case 54:
+                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`, `canal2`, `canal3`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '28', '29', '30')";
+            break;
             // Liga Costa Rica (FUTV)
             case 11535:
                 $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '248')";
