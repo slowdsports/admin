@@ -88,7 +88,7 @@ if ($apiLeague):
         switch ($tournament_id) {
             // LaLiga
             case 8:
-                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal2`, `canal3`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '17', '267')";
+                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal2`, `canal3`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '17', '282')";
             break;
             // LaLiga2
             case 54:
@@ -96,15 +96,15 @@ if ($apiLeague):
             break;
             // Liga Costa Rica (FUTV)
             case 11535:
-                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '248')";
+                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '295')";
             break;
             // Primera Uruguay (VTV, VTV+)
             case 278:
-                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`, `canal2`, `starp`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '346', '356', '1')";
+                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`, `canal2`, `starp`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '180', '181', '1')";
             break;
             // Liga Guate (Canal 7)
             case 11619:
-                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '178')";
+                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '218')";
             break;
             // UCL + UEL (Star + Vix)
             case 7: case 679:
