@@ -110,8 +110,8 @@ if ($apiLeague):
             case 7: case 679:
                 $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `starp`, `vix`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '1', '1')";
             break;
-            // Conference + Premier + Serie A + Bundesliga (Star)
-            case 17015: case 17: case 23: case 35: 
+            // Conference + Premier + Serie A + Bundesliga + Uruguay (Star)
+            case 17015: case 17: case 23: case 35: case 278: 
                 $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `starp`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '1')";
             break;
             // Liga MX + Brasileirao + Betplay + Copa de La Liga + FIFA WC u17 (Vix)
