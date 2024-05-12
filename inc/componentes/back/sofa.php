@@ -32,7 +32,6 @@ if ($apiLeague):
     foreach ($jsonData['events'] as $event) {
         // Country Info
         $country = $event['tournament']['uniqueTournament']['category']['slug'];
-        echo "Country: " . $country;
         $country_insert = "INSERT INTO `paises`(`paisCodigo`, `paisNombre`) VALUES ('$country', '$country')";
         mysqli_query($conn, $country_insert);
         $country = $event['tournament']['uniqueTournament']['category']['slug'];
@@ -93,7 +92,7 @@ if ($apiLeague):
             break;
             // LaLiga2
             case 54:
-                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`, `canal2`, `canal3`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '32', '33', '34', '35', '36')";
+                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`, `canal2`, `canal3`, `canal4`, `canal5`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '32', '33', '34', '35', '36')";
             break;
             // Liga Costa Rica (FUTV)
             case 11535:
