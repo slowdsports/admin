@@ -32,6 +32,7 @@ if ($apiLeague):
     foreach ($jsonData['events'] as $event) {
         // Country Info
         $country = $event['tournament']['uniqueTournament']['category']['slug'];
+        echo "Country: " . $country;
         $country_insert = "INSERT INTO `paises`(`paisCodigo`, `paisNombre`) VALUES ('$country', '$country')";
         mysqli_query($conn, $country_insert);
         $country = $event['tournament']['uniqueTournament']['category']['slug'];
@@ -88,24 +89,24 @@ if ($apiLeague):
         switch ($tournament_id) {
             // LaLiga
             case 8:
-                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal2`, `canal3`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '17', '282')";
+                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal3`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '314')";
             break;
             // LaLiga2
             case 54:
-                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`, `canal2`, `canal3`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '28', '29', '30')";
+                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`, `canal2`, `canal3`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '32', '33', '34', '35', '36')";
             break;
             // Liga Costa Rica (FUTV)
             case 11535:
-                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '295')";
+                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '332')";
             break;
             // Primera Uruguay (VTV, VTV+)
-            case 278:
-                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`, `canal2`, `starp`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '180', '181', '1')";
-            break;
+            // case 278:
+            //     $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`, `canal2`, `starp`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '180', '181', '1')";
+            // break;
             // Liga Guate (Canal 7)
-            case 11619:
-                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '218')";
-            break;
+            // case 11619:
+            //     $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '218')";
+            // break;
             // UCL + UEL (Star + Vix)
             case 7: case 679:
                 $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `starp`, `vix`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '1', '1')";
@@ -132,7 +133,7 @@ if ($apiLeague):
         }
         // Tennis
         if ($sport == "tennis") {
-            $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`, `canal2`, `canal3`, `canal4`, `canal5`, `canal6`, `canal7`, `canal8`, `canal9`, starp) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '227', '228', '80','185','186','187','31','106','222','1')";
+            $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`, `canal2`, `canal3`, `canal4`, `canal5`, `canal6`, `canal7`, starp) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '49', '90', '314','315','144','145','146','1')";
         }
         //$game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport')";
         mysqli_query($conn, $game_insert);
