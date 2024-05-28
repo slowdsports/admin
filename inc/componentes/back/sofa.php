@@ -45,10 +45,16 @@ if ($apiLeague):
         $tournament_insert = "INSERT INTO `ligas`(`ligaId`, `ligaNombre`, `ligaImg`, `ligaPais`, `season`) VALUES ($tournament_id, '$tournament_name', '$tournament_sname', '$country', '$seasonId')";
         // Obtener y guardar la imagen de la liga si no existe
         $ligaImgPath = "../../../../assets/img/ligas/sf/{$tournament_id}.png";
+        $ligaImgPathDark = "../../../../assets/img/ligas/sf/dark/{$tournament_id}.png";
         if (!file_exists($ligaImgPath)) {
-            $ligaImgUrl = "https://api.sofascore.app/api/v1/unique-tournament/{$tournament_id}/image/dark";
+            $ligaImgUrl = "https://api.sofascore.app/api/v1/unique-tournament/{$tournament_id}/image";
             $ligaImg = file_get_contents($ligaImgUrl);
             file_put_contents($ligaImgPath, $ligaImg);
+        }
+        if (!file_exists($ligaImgPathDark)) {
+            $ligaImgUrlDark = "https://api.sofascore.app/api/v1/unique-tournament/{$tournament_id}/image/dark";
+            $ligaImgDark = file_get_contents($ligaImgUrlDark);
+            file_put_contents($ligaImgPathDark, $ligaImgDark);
         }
         mysqli_query($conn, $tournament_insert);
         // Teams Info
