@@ -38,6 +38,7 @@ if ($apiLeague):
         // Tournament Info
         $tournament_id = $event['tournament']['uniqueTournament']['id'];
         $tournament_name = $event['tournament']['name'];
+        $tournament_name = str_replace("'", "", $tournament_name);
         $tournament_sname = $event['tournament']['slug'];
         $sport_id = $event['tournament']['uniqueTournament']['category']['sport']['id'];
         $sport = $event['tournament']['uniqueTournament']['category']['sport']['slug'];
