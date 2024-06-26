@@ -38,17 +38,24 @@ if ($apiLeague):
         // Tournament Info
         $tournament_id = $event['tournament']['uniqueTournament']['id'];
         $tournament_name = $event['tournament']['name'];
+        $tournament_name = str_replace("'", "", $tournament_name);
         $tournament_sname = $event['tournament']['slug'];
         $sport_id = $event['tournament']['uniqueTournament']['category']['sport']['id'];
         $sport = $event['tournament']['uniqueTournament']['category']['sport']['slug'];
         // Volcado base de datos
         $tournament_insert = "INSERT INTO `ligas`(`ligaId`, `ligaNombre`, `ligaImg`, `ligaPais`, `season`) VALUES ($tournament_id, '$tournament_name', '$tournament_sname', '$country', '$seasonId')";
         // Obtener y guardar la imagen de la liga si no existe
-        $ligaImgPath = "../../../../assets/img/ligas/sf/{$tournament_id}.png";
+        $ligaImgPath = "/home/u4396178/irtvhn.info/assets/img/ligas/sf/{$tournament_id}.png";
+        $ligaImgPathDark = "/home/u4396178/irtvhn.info/assets/img/ligas/sf/dark/{$tournament_id}.png";
         if (!file_exists($ligaImgPath)) {
-            $ligaImgUrl = "https://api.sofascore.app/api/v1/unique-tournament/{$tournament_id}/image/dark";
+            $ligaImgUrl = "https://api.sofascore.app/api/v1/unique-tournament/{$tournament_id}/image";
             $ligaImg = file_get_contents($ligaImgUrl);
             file_put_contents($ligaImgPath, $ligaImg);
+        }
+        if (!file_exists($ligaImgPathDark)) {
+            $ligaImgUrlDark = "https://api.sofascore.app/api/v1/unique-tournament/{$tournament_id}/image/dark";
+            $ligaImgDark = file_get_contents($ligaImgUrlDark);
+            file_put_contents($ligaImgPathDark, $ligaImgDark);
         }
         mysqli_query($conn, $tournament_insert);
         // Teams Info
@@ -57,7 +64,7 @@ if ($apiLeague):
         $home_sname = $event['homeTeam']['shortName'];
         $home_insert = "INSERT INTO `equipos`(`equipoId`, `equipoNombre`, `equipoImg`, `equipoLiga`) VALUES ($home_id, '$home_name', null, $tournament_id)";
         // Obtener y guardar la imagen del equipo local si no existe
-        $homeImgPath = "../../../../assets/img/equipos/sf/{$home_id}.png";
+        $homeImgPath = "/home/u4396178/irtvhn.info/assets/img/equipos/sf/{$home_id}.png";
         if (!file_exists($homeImgPath)) {
             $homeImgUrl = "https://api.sofascore.app/api/v1/team/{$home_id}/image";
             $homeImg = file_get_contents($homeImgUrl);
@@ -71,7 +78,7 @@ if ($apiLeague):
         $away_name = str_replace("'", "", $away_name);
         $away_insert = "INSERT INTO `equipos`(`equipoId`, `equipoNombre`, `equipoImg`, `equipoLiga`) VALUES ($away_id, '$away_name', null, $tournament_id)";
         // Obtener y guardar la imagen del equipo visitante si no existe
-        $awayImgPath = "../../../../assets/img/equipos/sf/{$away_id}.png";
+        $awayImgPath = "/home/u4396178/irtvhn.info/assets/img/equipos/sf/{$away_id}.png";
         if (!file_exists($awayImgPath)) {
             $awayImgUrl = "https://api.sofascore.app/api/v1/team/{$away_id}/image";
             $awayImg = file_get_contents($awayImgUrl);
