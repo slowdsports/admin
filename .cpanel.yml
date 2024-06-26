@@ -2,6 +2,6 @@
 deployment:
   tasks:
     #- export DEPLOYPATH=/home/megaaxmg/teombley.asia/iraffle/admin/
-    - export DEPLOYPATH=/home/u4396178/irtvhn.online/admin/
+    - export DEPLOYPATH=/home/u4396178/irtvhn.info/admin/
     - /bin/cp -R * $DEPLOYPATH
     #- /bin/rsync -a --exclude 'conn.php' public/ $DEPLOYPATH
