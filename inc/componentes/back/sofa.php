@@ -46,6 +46,7 @@ if ($apiLeague):
         $tournament_name = $event['tournament']['name'];
         $tournament_name = str_replace("'", "", $tournament_name);
         $tournament_sname = $event['tournament']['slug'];
+        $sport = $event['tournament']['uniqueTournament']['category']['sport']['slug'];
 
         // Verificar si la liga ya existe
         $query = "SELECT * FROM `ligas` WHERE `ligaId` = $tournament_id";
