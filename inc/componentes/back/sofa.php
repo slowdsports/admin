@@ -33,7 +33,7 @@ if ($apiLeague):
         // Country Info
         $country = $event['tournament']['uniqueTournament']['category']['slug'];
         $country_insert = "INSERT INTO `paises`(`paisCodigo`, `paisNombre`) VALUES ('$country', '$country')";
-        mysqli_query($conn, $country_insert);
+        //mysqli_query($conn, $country_insert);
         $country = $event['tournament']['uniqueTournament']['category']['slug'];
         // Tournament Info
         $tournament_id = $event['tournament']['uniqueTournament']['id'];
