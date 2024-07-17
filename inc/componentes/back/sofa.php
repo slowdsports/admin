@@ -148,6 +148,9 @@ if ($apiLeague):
                 case 11621: case 325: case 11536: case 11539: case 13475: case 279:
                     $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `vix`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '1')";
                     break;
+                case 11536:
+                    $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`, `canal2`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '397', '398')";
+                    break;
                 case 36:
                     $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`)
                     SELECT $game_id, $home_id, $away_id, $tournament_id, '$date', '$sport'
