@@ -210,6 +210,7 @@ function editarFuente() {
     var pais = document.getElementById("pais").value;
     var tipo = document.getElementById("tipo").value;
     var cPadre = document.getElementById("canalPadre").value;
+    var fStatus = document.getElementById("fuenteStatus").value;
 
     // Creamos un objeto XMLHttpRequest
     var xmlhttp = new XMLHttpRequest();
@@ -237,7 +238,7 @@ function editarFuente() {
     };
     xmlhttp.open("POST", "inc/componentes/back/update.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("fuentes&id=" + fId + "&fuenteNombre=" + fNombre + "&canalPadre=" + cPadre + "&fuenteUrl=" + fUrl + "&key1=" + key1 + "&key2=" + key2 + "&pais=" + pais + "&tipo=" + tipo);
+    xmlhttp.send("fuentes&id=" + fId + "&fuenteNombre=" + fNombre + "&canalPadre=" + cPadre + "&fuenteUrl=" + fUrl + "&key1=" + key1 + "&key2=" + key2 + "&pais=" + pais + "&tipo=" + tipo  + "&status=" + fStatus);
 }
 
 function eliminarFuente() {
