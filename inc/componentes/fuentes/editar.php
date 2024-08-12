@@ -28,6 +28,19 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="col-lg-6">
+                            <div class="mb-3">
+                                <label for="fuenteStatus" class="form-label">Status</label>
+                                <select class="form-control select2" data-toggle="select2" id="fuenteStatus" name="fuenteStatus">
+                                    <option value="1" <?= ($result['status'] == 1) ? "selected" : "" ?>>
+                                        Activo
+                                    </option>
+                                    <option value="1" <?= ($result['status'] == 0) ? "selected" : "" ?>>
+                                        Inactivo
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
                         <!-- ID Fuente -->
                         <input type="hidden" name="fuenteId" id="fuenteId" value="<?= $result['fuenteId'] ?>">
                         <!-- DATOS FUENTE -->
