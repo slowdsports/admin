@@ -25,11 +25,12 @@
             <!-- end page title -->
 
             <?php
-            $consultaSQL = "SELECT canales.canalId, canales.canalNombre, canales.epg, canales.canalImg, canales.canalCategoria, fuentes.fuenteId, fuentes.fuenteNombre, fuentes.canal, fuentes.canalUrl, fuentes.key, fuentes.key2, fuentes.pais, fuentes.tipo, fuentes.status, categorias.categoriaNombre, paises.paisId, paises.paisNombre, paises.paisCodigo
+            $consultaSQL = "SELECT canales.canalId, canales.canalNombre, canales.epg, canales.canalImg, canales.canalCategoria, fuentes.fuenteId, fuentes.fuenteNombre, fuentes.canal, fuentes.canalUrl, fuentes.key, fuentes.key2, fuentes.pais, fuentes.tipo, fuentes.status, categorias.categoriaNombre, paises.paisId, paises.paisNombre, paises.paisCodigo, reportes.comentario
             FROM fuentes
             INNER JOIN canales ON fuentes.canal = canales.canalId
             INNER JOIN categorias ON canales.canalCategoria = categorias.categoriaId
-            INNER JOIN paises ON fuentes.pais = paises.paisId";
+            INNER JOIN paises ON fuentes.pais = paises.paisId
+            INNER JOIN reportes ON fuentes.fuenteId = reportes.fuente";
             if (isset($_GET['agregar'])) {
                 include('inc/componentes/fuentes/agregar.php');
             } elseif (isset($_GET['editar'])) {
