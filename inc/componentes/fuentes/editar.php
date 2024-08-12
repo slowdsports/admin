@@ -35,7 +35,7 @@
                                     <option value="1" <?= ($result['status'] == 1) ? "selected" : "" ?>>
                                         Activo
                                     </option>
-                                    <option value="1" <?= ($result['status'] == 0) ? "selected" : "" ?>>
+                                    <option value="0" <?= ($result['status'] == 0) ? "selected" : "" ?>>
                                         Inactivo
                                     </option>
                                 </select>
