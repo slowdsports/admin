@@ -3,6 +3,7 @@
         <div class="card">
             <div class="card-body">
                 <a href="?p=fuentes&agregar" class="btn btn-outline-primary">+ Agregar</a>
+                <a href="?p=fuentes&reportes" class="btn btn-outline-warning"> Ver Reportes</a>
                 <hr>
                 <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                     <thead>
