@@ -67,12 +67,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $id = $_POST["id"];
         $fNombre = $_POST["fuenteNombre"];
         $cPadre = $_POST["canalPadre"];
+        $fStatus = $_POST["status"];
         $fUrl = $_POST["fuenteUrl"];
         $key1 = $_POST["key1"];
         $key2 = $_POST["key2"];
         $pais = $_POST["pais"];
         $tipo = $_POST["tipo"];
-        $sql = "UPDATE `fuentes` SET `fuenteId`='$id', `fuenteNombre`='$fNombre', `canal`='$cPadre', `canalUrl`='$fUrl', `key`='$key1', `key2`='$key2', `pais`='$pais', `tipo`='$tipo' WHERE fuenteId=$id";
+        $sql = "UPDATE `fuentes` SET `fuenteId`='$id', `fuenteNombre`='$fNombre', `canal`='$cPadre', `canalUrl`='$fUrl', `key`='$key1', `key2`='$key2', `pais`='$pais', `tipo`='$tipo, `status`='$fStatus' WHERE fuenteId=$id";
         if (mysqli_query($conn, $sql)) {
             echo "La fuente " . $fNombre . " ha sido modificada satisfactoriamente";
         } else {
