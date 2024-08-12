@@ -38,6 +38,18 @@
                 $canales = mysqli_query($conn, $consultaSQL);
                 $result = mysqli_fetch_array($canales);
                 include('inc/componentes/fuentes/editar.php');
+            } elseif (isset($_GET['reportes'])) {
+                $consultaSQL = "SELECT canales.canalId, canales.canalNombre, canales.canalImg, canales.canalCategoria, COUNT(reportes.id) AS totalReportes, MAX(reportes.fecha) AS ultimaFecha, fuentes.fuenteId, fuentes.fuenteNombre, categorias.categoriaNombre, fuentes.pais, paises.paisNombre
+                FROM reportes
+                INNER JOIN fuentes ON reportes.fuente = fuentes.fuenteId
+                INNER JOIN canales ON fuentes.canal = canales.canalId
+                INNER JOIN paises ON fuentes.pais = paises.paisId
+                INNER JOIN categorias ON canales.canalCategoria = categorias.categoriaId
+                GROUP BY canales.canalId, canales.canalNombre, canales.canalImg, canales.canalCategoria, fuentes.fuenteId, fuentes.fuenteNombre, categorias.categoriaNombre, fuentes.pais, paises.paisNombre
+                ORDER BY ultimaFecha DESC";
+                $reportes = mysqli_query($conn, $consultaSQL);
+                include('inc/componentes/fuentes/reportes.php');
+
             } else {
                 $consultaSQL .= " ORDER BY fuenteId ASC";
                 $canales = mysqli_query($conn, $consultaSQL);
