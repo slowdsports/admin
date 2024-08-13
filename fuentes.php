@@ -38,7 +38,7 @@
                 include('inc/componentes/fuentes/reportes.php');
 
             } else {
-                $consultaSQL = "SELECT canales.canalId, canales.canalNombre, canales.epg, canales.canalImg, canales.canalCategoria, fuentes.fuenteId, fuentes.fuenteNombre, fuentes.canal, fuentes.canalUrl, fuentes.key, fuentes.key2, fuentes.pais, fuentes.tipo, fuentes.status, categorias.categoriaNombre, paises.paisId, paises.paisNombre, paises.paisCodigo
+                $consultaSQL = "SELECT canales.canalId, canales.canalNombre, canales.epg, canales.canalImg, canales.canalCategoria, fuentes.fuenteId, fuentes.fuenteNombre, fuentes.canal, fuentes.canalUrl, fuentes.key, fuentes.key2, fuentes.comentario, fuentes.pais, fuentes.tipo, fuentes.status, categorias.categoriaNombre, paises.paisId, paises.paisNombre, paises.paisCodigo
                 FROM fuentes
                 INNER JOIN canales ON fuentes.canal = canales.canalId
                 INNER JOIN categorias ON canales.canalCategoria = categorias.categoriaId
