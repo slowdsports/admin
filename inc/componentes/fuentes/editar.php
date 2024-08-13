@@ -77,6 +77,13 @@
                                 <input type="text" id="key2" name="key2" class="form-control" value="<?=$result['key2']?>">
                             </div>
                         </div>
+                        <!-- Comentario -->
+                        <div class="col-lg-6">
+                            <div class="mb-3">
+                                <label for="comentario" class="form-label">Comentario</label>
+                                <input type="text" id="comentario" name="comentario" class="form-control" value="<?=$result['comentario']?>">
+                            </div>
+                        </div>
                         <!-- PAIS -->
                         <div class="col-lg-6">
                             <div class="mb-3">
