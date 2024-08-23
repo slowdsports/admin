@@ -128,7 +128,7 @@ if ($apiLeague):
             // Canales por defecto por liga
             switch ($tournament_id) {
                 case 8:
-                    $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal3`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '314')";
+                    $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal3`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '316')";
                     break;
                 case 54:
                     $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`, `canal2`, `canal3`, `canal4`, `canal5`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '32', '33', '34', '35', '36')";
