@@ -99,7 +99,7 @@ if ($apiLeague):
             break;
             // LaLiga2
             case 54:
-                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`, `canal2`, `canal3`, `canal4`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '9', '10', '11', '12')";
+                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`, `canal2`, `canal3`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '9', '10', '11')";
             break;
             // Liga Costa Rica (FUTV)
             case 11535: case 11542:
