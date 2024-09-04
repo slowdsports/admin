@@ -105,10 +105,10 @@ if ($apiLeague):
             case 11535: case 11542:
                 $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '332')";
             break;
-            // Primera Uruguay (VTV, VTV+)
-            // case 278:
-            //     $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`, `canal2`, `starp`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '180', '181', '1')";
-            // break;
+            // Paraguay (Tigo)
+            case 11541:
+                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '115')";
+            break;
             // Liga Guate (Canal 7)
             // case 11619:
             //     $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '218')";
