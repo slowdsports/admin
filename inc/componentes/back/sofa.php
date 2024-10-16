@@ -113,10 +113,10 @@ if ($apiLeague):
             case 11541:
                 $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '115')";
             break;
-            // Liga Guate (Canal 7)
-            // case 11619:
-            //     $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '218')";
-            // break;
+            // Betplay
+            case 11536:
+                $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `canal1`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '424')";
+            break;
             // UCL + UEL (Star + Vix)
             case 7: case 679:
                 $game_insert = "INSERT INTO `partidos`(`id`, `local`, `visitante`, `liga`, `fecha_hora`, `tipo`, `starp`, `vix`) VALUES ($game_id, $home_id, $away_id, $tournament_id, '$date', '$sport', '1', '1')";
